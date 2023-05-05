@@ -291,3 +291,10 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+cast_list = Role.all
+
+for i in cast_list
+    mov = Movie.find_by({"id"=>i["movie_id"]})
+    act = Actor.find_by({"id"=>i["actor_id"]})
+    puts"#{mov["title"]} #{act["name"]} #{i["character_name"]}"
+end
